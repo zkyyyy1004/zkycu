@@ -269,6 +269,17 @@
     .dbar{top:44px;margin-top:0;padding-top:10px}
     .dslots{grid-template-columns:1fr}
   }
+  /* 대사창 버튼: ◀ 이전 / 다음 ▶ 같은 모양으로 */
+  #dlg .prev,#dlg .next{position:absolute;bottom:10px;font-size:13px;line-height:1.2;padding:6px 12px;border:1px solid var(--line);border-radius:8px;background:rgba(31,30,42,.9);cursor:pointer;animation:none;user-select:none}
+  #dlg .prev{right:112px;color:var(--muted)}
+  #dlg .next{right:22px;color:var(--gold);border-color:rgba(230,193,90,.55)}
+  #dlg .prev:hover,#dlg .next:hover{color:var(--gold);border-color:var(--gold)}
+  #dlg .next .ar{display:inline-block;animation:blink 1s infinite}
+  @media (max-width:899px){
+    #dlg .prev,#dlg .next{bottom:6px;font-size:12px;padding:5px 9px}
+    #dlg .prev{right:84px}
+    #dlg .next{right:10px}
+  }
 </style>
 </head>
 <body>
@@ -329,7 +340,7 @@
       <div class="name" id="dName"></div>
       <div class="text" id="dText"></div>
       <div class="prev" id="dPrev" onclick="event.stopPropagation();prevLine()">◀ 이전</div>
-      <div class="next">▼ 클릭</div>
+      <div class="next">다음 <span class="ar">▶</span></div>
     </div>
     <div id="toast"></div>
     <div class="evflash" id="evflash"><small>NEW EVIDENCE</small><br><img id="efImg" class="pix" src=""><h4 id="efTitle"></h4><p id="efText"></p></div>
